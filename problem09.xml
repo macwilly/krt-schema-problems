@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publications xmlns="http://www.lanw.com/namespaces/pub"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.lanw.com/namespaces/pub zip:file:/D:/School/2014-2015/ISTE%20610%20Knowledge%20Rep/Schema-Chapter-5.zip!/schema-book-xsd-Chap-5/listing5-10.xsd">
+    <book isbn="" edition="1" cat="11">
+        <title></title>
+        <authors>
+            <author></author>
+        </authors>
+        <pubDate year=""/>
+        <publisher></publisher>
+        <size pp="1"/>
+        <topics>
+            <topic></topic>
+        </topics>
+        <description></description>
+        <delivery>electronic-pdf</delivery>
+        <delivery-yearType>1998</delivery-yearType>
+        <delivery-yearlist>electronic-pdf</delivery-yearlist>
+        
+    </book>
+</publications>

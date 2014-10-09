@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.lanw.com/namespaces/pub"
+	xmlns="http://www.lanw.com/namespaces/pub">
+	
+	<xsd:simpleType name="yearType">
+		<xsd:restriction base="xsd:gYear"/>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="isbnType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{10}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="editionType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ppType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="author" type="xsd:string"/>
+	
+	<xsd:complexType name="authorsType">
+		<xsd:sequence>
+			<xsd:element ref="author" maxOccurs="5"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="bookType">
+		<xsd:sequence>
+			<xsd:element ref="title"/>
+			<xsd:element name="authors" type="authorsType"/>
+			<xsd:element name="pubDate" type="pubDateType"/>
+			<xsd:element ref="publisher"/>
+			<xsd:element name="size" type="sizeType"/>
+			<xsd:element name="topics" type="topicsType"/>
+			<xsd:element name="errata" type="errataType"
+				minOccurs="0"/>
+			<xsd:element ref="description"/>
+			<xsd:element ref="website" minOccurs="0"/>
+			<xsd:element name="delivery" type="delivery-type"></xsd:element>
+			<xsd:element name="delivery-yearType" type="deliver-year-type"/>
+			<xsd:element name="delivery-yearlist" type="delivery-year-list"/>
+		</xsd:sequence>
+		<xsd:attribute name="isbn" type="isbnType"
+			use="required"/>
+		<xsd:attribute name="edition" type="editionType"
+			use="required"/>
+		<xsd:attribute name="cat" type="xsd:NMTOKENS"
+			use="required"/>
+		<xsd:attribute name="id" type="xsd:ID"/>
+	</xsd:complexType>
+	
+	<xsd:element name="description" type="xsd:string"/>
+	
+	<xsd:complexType name="errataType">
+		<xsd:attribute name="code" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="pubDateType">
+		<xsd:attribute name="year" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:element name="publications">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="book" type="bookType"
+					maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="publisher" type="xsd:string"/>
+	
+	<xsd:complexType name="sizeType">
+		<xsd:attribute name="pp" type="ppType" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:element name="title" type="xsd:string"/>
+	<xsd:element name="topic" type="xsd:string"/>
+	
+	<xsd:complexType name="topicsType">
+		<xsd:sequence>
+			<xsd:element ref="topic" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:element name="website" type="xsd:string"/>
+	<xsd:simpleType name="deliver-year-type">
+		<xsd:union memberTypes="delivery-type yearType"/>			
+	</xsd:simpleType>
+	<xsd:simpleType name="delivery-type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="hard-cover"/>    
+			<xsd:enumeration value="soft-cover"/>
+			<xsd:enumeration value="electronic-pdf"/>
+			<xsd:enumeration value="electronic-word"/>
+		</xsd:restriction>        
+	</xsd:simpleType>
+	<xsd:simpleType name="delivery-year-list">
+		<xsd:union memberTypes="yearType delivery-type"/>
+	</xsd:simpleType>
+	
+</xsd:schema>
