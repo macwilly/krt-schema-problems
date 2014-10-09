@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1"> 
+    
+    <xs:annotation>
+        <xs:documentation>Create a schema with a root element of animal that can contain at most a mixture or three cats or dogs. Cats and dogs are simple elements</xs:documentation>
+    </xs:annotation>
+    <xs:element name="animal">
+        <xs:complexType>
+            <xs:choice maxOccurs="3">
+            
+                <!-- Start of the cat element -->
+                <xs:element name="cat">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:element>
+                
+                <!-- Start of the dog element -->
+                <xs:element name="dog">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:element>
+            
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
