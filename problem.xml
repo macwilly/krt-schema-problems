@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1">
+    <xs:annotation>
+        <xs:documentation>This schema will have the root element of animal that can contain any number of cat and dog elementsin any order. The cats and dogs are simple elements</xs:documentation>
+    </xs:annotation>
+    <xs:element name="animal">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="dog" />
+                <xs:pattern value="cat"/>
+            </xs:restriction>
+            
+        </xs:simpleType>
+        
+    </xs:element>
+    
+    
+</xs:schema>
