@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="file:/D:/School/2014-2015/ISTE%20610%20Knowledge%20Rep/krt-schema-problems/problem02.xsd">
+    <dog></dog>
+    <cat></cat>
+    <dog></dog>
+    <cat></cat>
+</animal>

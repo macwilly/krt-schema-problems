@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1"> 
+    <xs:annotation>
+        <xs:documentation> Create a schema with a root element of animal that can contain a dog followed by cat. The cats and dogs are simple elements</xs:documentation>
+    </xs:annotation>
+    <xs:element name="animal">
+        <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+                <!-- This is the dog element  -->
+                <xs:element name="dog" maxOccurs="unbounded">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:element>
+                <!-- This is that cat element -->
+                <xs:element name="cat" maxOccurs="unbounded">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"></xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
